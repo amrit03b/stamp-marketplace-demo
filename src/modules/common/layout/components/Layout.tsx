@@ -5,6 +5,8 @@ import Navbar from "./Navbar";
 import PoweredByLogo from "./PoweredByLogo";
 import { motion } from "framer-motion";
 
+const MotionBox = motion(Box);
+
 interface LayoutProps {
   children?: ReactNode;
 }
@@ -18,8 +20,7 @@ const Layout: FC<LayoutProps> = (props) => {
       </Box>
       <Divider />
       <Box px="0" py="16" display="flex" justifyContent="center" alignItems="center">
-        <Box
-          as={motion.div}
+        <MotionBox
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
@@ -35,7 +36,7 @@ const Layout: FC<LayoutProps> = (props) => {
           zIndex={1}
         >
           {children}
-        </Box>
+        </MotionBox>
       </Box>
       <PoweredByLogo />
       {/* <Box>
