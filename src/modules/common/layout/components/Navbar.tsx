@@ -11,7 +11,7 @@ const Navbar: FC<NavbarProps> = (props) => {
   const { config } = useApp();
 
   return (
-    <Box py="2" px="8" bg="rgba(255,255,255,0.6)" backdropFilter="blur(8px)" borderBottom="1px solid rgba(0,0,0,0.05)" boxShadow="sm" zIndex={10} position="sticky" top={0}>
+    <Box py="2" px="8" bg="rgba(219,234,254,0.85)" backdropFilter="blur(8px)" borderBottom="1px solid #bfdbfe" boxShadow="sm" zIndex={10} position="sticky" top={0} transition="background 0.4s cubic-bezier(0.4,0,0.2,1)">
       <Flex
         direction="row"
         alignItems="center"
@@ -20,8 +20,8 @@ const Navbar: FC<NavbarProps> = (props) => {
         gap="4"
       >
         <Link href={LINKS.home()} passHref>
-          <Text as="a" fontSize="lg" fontWeight="bold">
-            {config.name}
+          <Text as="a" fontSize="xl" fontWeight="bold" color="gray.900">
+            Stamp Auction Platform
           </Text>
         </Link>
         <Flex direction="row" ml="auto" gap="2">

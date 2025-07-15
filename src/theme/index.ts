@@ -32,9 +32,14 @@ export const Theme = extendTheme({
   config,
   styles: {
     global: {
+      body: {
+        bg: 'blue.50',
+        color: 'gray.900',
+        transition: 'background 0.4s cubic-bezier(0.4,0,0.2,1)',
+      },
       "*": {
         scrollbarWidth: "6px",
-        scrollbarColor: "#7F56D9 transparent",
+        scrollbarColor: "#3b82f6 #e0e7ef",
       },
 
       "*::-webkit-scrollbar": {
@@ -42,11 +47,11 @@ export const Theme = extendTheme({
       },
 
       "*::-webkit-scrollbar-track": {
-        bg: "transparent",
+        bg: "blue.100",
       },
 
       "*::-webkit-scrollbar-thumb": {
-        bg: "#7F56D9",
+        bg: "#3b82f6",
         borderRadius: "1.5rem",
       },
     },
@@ -70,18 +75,59 @@ export const Theme = extendTheme({
     Tabs,
     Tooltip,
     Card: {
-      baseStyle: cardStyle,
+      baseStyle: {
+        bg: 'background.800',
+        color: 'gray.900',
+        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.08)',
+        borderRadius: '2xl',
+        backdropFilter: 'blur(8px)',
+        border: '1px solid #e0e7ef',
+        transition: 'background 0.4s cubic-bezier(0.4,0,0.2,1)',
+      },
     },
     Button: {
       ...theme.components?.Button,
+      baseStyle: {
+        fontWeight: 'bold',
+        borderRadius: 'xl',
+        transition: 'all 0.2s cubic-bezier(0.4,0,0.2,1)',
+      },
       variants: {
         ...theme.components?.Button?.variants,
         gradient: {
-          bgGradient: 'linear(to-r, primary.400, primary.600)',
+          bgGradient: 'linear(to-r, primary.400, accent.400)',
           color: 'white',
           _hover: {
-            bgGradient: 'linear(to-r, primary.500, primary.700)',
+            bgGradient: 'linear(to-r, primary.500, accent.500)',
             boxShadow: 'lg',
+            transform: 'scale(1.04)',
+          },
+        },
+        solid: {
+          bg: 'primary.500',
+          color: 'white',
+          _hover: {
+            bg: 'primary.600',
+            boxShadow: 'md',
+            transform: 'scale(1.04)',
+          },
+        },
+      },
+    },
+    Input: {
+      variants: {
+        outline: {
+          field: {
+            bg: 'background.700',
+            color: 'gray.900',
+            borderColor: 'gray.300',
+            _placeholder: { color: 'gray.500' },
+            _focus: {
+              borderColor: 'primary.400',
+              boxShadow: '0 0 0 4px #dbeafe',
+              bg: 'background.700',
+              color: 'gray.900',
+            },
           },
         },
       },
@@ -89,30 +135,27 @@ export const Theme = extendTheme({
   },
   colors: {
     primary: {
-      25: "#FCFAFF ",
-      50: "#F9F5FF",
-      100: "#F4EBFF",
-      200: "#E9D7FE",
-      300: "#D6BBFB",
-      400: "#B692F6",
-      500: "#9E77ED",
-      600: "#7F56D9",
-      700: "#6941C6",
-      800: "#53389E",
-      900: "#42307D",
+      50: '#eff6ff',
+      100: '#dbeafe',
+      200: '#bfdbfe',
+      300: '#93c5fd',
+      400: '#60a5fa',
+      500: '#3b82f6',
+      600: '#2563eb',
+      700: '#1d4ed8',
+      800: '#1e40af',
+      900: '#1e3a8a',
     },
-    gray: {
-      25: "#FCFCFD",
-      50: "#F9FAFB",
-      100: "#F2F4F7",
-      200: "#EAECF0",
-      300: "#D0D5DD",
-      400: "#98A2B3",
-      500: "#667085",
-      600: "#475467",
-      700: "#344054",
-      800: "#1D2939",
-      900: "#101828",
+    accent: {
+      400: '#38bdf8',
+      500: '#0ea5e9',
+      600: '#0284c7',
+    },
+    gray: theme.colors.gray,
+    background: {
+      900: '#f0f6ff',
+      800: '#e0e7ef',
+      700: '#dbeafe',
     },
     error: {
       25: "#FFFBFA",

@@ -14,13 +14,16 @@ const ExchangeInput: FC<ExchangeInputProps> = (props) => {
         <InputGroup size='lg' data-testid="exchange-input">
             <Input
                 placeholder='Input Amount'
-                borderColor={"purple.400"}
-                focusBorderColor="purple.500"
+                borderColor={"gray.600"}
+                focusBorderColor="primary.400"
                 borderWidth={2}
                 value={value.toString()}
                 onChange={onChange}
                 type="number"
                 data-testid="input-amount"
+                bg="background.700"
+                color="gray.100"
+                _placeholder={{ color: 'gray.400' }}
             />
             <InputRightElement data-testid="input-icon">
                 <Box>

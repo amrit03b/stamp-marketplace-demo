@@ -57,10 +57,10 @@ const CrowdfundInfo: FC<CrowdfundInfoProps> = (props) => {
     <Box w="full" data-testid="crowdfund-info">
       <HStack justify="space-between" data-testid="crowdfund-header">
         <Box>
-          <Text fontSize="2xl" fontWeight="bold" data-testid="collection-name">
+          <Text fontSize="2xl" fontWeight="bold" data-testid="collection-name" color="gray.100">
             {collectionName}
           </Text>
-          <Text fontSize="xs" fontWeight="thin" fontStyle="light">
+          <Text fontSize="xs" fontWeight="thin" fontStyle="light" color="gray.300">
             Collection: <b>{collectionName}</b>
           </Text>
         </Box>
@@ -68,25 +68,27 @@ const CrowdfundInfo: FC<CrowdfundInfoProps> = (props) => {
 
       <Box
         border="1px"
-        borderColor="gray.300"
+        borderColor="gray.700"
         rounded="lg"
         mt="4"
         p="4"
         minW="xs"
         w="full"
+        bg="background.800"
         data-testid="crowdfund-details"
       >
         <Text
-          bg="#e6f2e6"
+          bg="accent.400"
           p={2}
           borderRadius="md"
           display="inline-flex"
           alignItems="center"
           width="62px"
           height="14px"
+          color="white"
           data-testid="crowdfund-status"
         >
-          <Text ml={2} fontSize="xs" color="green">
+          <Text ml={2} fontSize="xs" color="white">
             Open
           </Text>
         </Text>
@@ -97,12 +99,13 @@ const CrowdfundInfo: FC<CrowdfundInfoProps> = (props) => {
           alignItems="center"
           fontSize={"lg"}
           fontWeight={"bold"}
+          color="gray.100"
           data-testid="total-amount-sold"
         >
           {total_amount_sold} {denom}
         </Text>
 
-        <Text display="inline-flex" alignItems="center" fontSize={"sm"} data-testid="pledged-amount">
+        <Text display="inline-flex" alignItems="center" fontSize={"sm"} color="gray.300" data-testid="pledged-amount">
           pledged of {min_tokens_sold * price} {denom} goal
         </Text>
         <Progress colorScheme="green" size="sm" mt="3" value={progress} borderRadius="md" data-testid="progress-bar" />
@@ -123,7 +126,7 @@ const CrowdfundInfo: FC<CrowdfundInfoProps> = (props) => {
             <Text fontWeight="bold" fontSize="md" ml="0.5" data-testid="duration-hours">
               {duration.asHours().toFixed(0)}
             </Text>
-            <Text fontSize="xs" textStyle="light">
+            <Text fontSize="xs" textStyle="light" color="gray.300">
               Hours
             </Text>
           </Box>
@@ -131,7 +134,7 @@ const CrowdfundInfo: FC<CrowdfundInfoProps> = (props) => {
             <Text fontWeight="bold" fontSize="md" ml="0.5" data-testid="duration-minutes">
               {duration.minutes()}
             </Text>
-            <Text fontSize="xs" textStyle="light">
+            <Text fontSize="xs" textStyle="light" color="gray.300">
               Minutes
             </Text>
           </Box>
@@ -139,7 +142,7 @@ const CrowdfundInfo: FC<CrowdfundInfoProps> = (props) => {
             <Text fontWeight="bold" fontSize="md" ml="0.5" data-testid="duration-seconds">
               {duration.seconds()}
             </Text>
-            <Text fontSize="xs" textStyle="light">
+            <Text fontSize="xs" textStyle="light" color="gray.300">
               Seconds
             </Text>
           </Box>

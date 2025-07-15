@@ -42,11 +42,19 @@ const EmbeddableList: FC<Props> = (props) => {
                                 </InputLeftElement>
                                 <Input type='tel' placeholder='Search embeddables'
                                     onChange={(event) => setSearchInput(event.target?.value.trim())}
+                                    bg="background.700"
+                                    color="gray.100"
+                                    borderColor="gray.600"
+                                    _placeholder={{ color: 'gray.400' }}
                                 />
                             </InputGroup>
                         </Box>
                         <Select size='sm' h='40px' borderRadius='8px' placeholder="Sort by"
-                            onChange={(event) => { setSortType(event.target.value) }}>
+                            onChange={(event) => { setSortType(event.target.value) }}
+                            bg="background.700"
+                            color="gray.100"
+                            borderColor="gray.600"
+                        >
                             <option value='Asc'>Asc</option>
                             <option value='Desc'>Desc</option>
                         </Select>

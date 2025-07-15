@@ -20,7 +20,7 @@ const NumberInput: FC<NumberInputProps> = (props) => {
   return (
     <Flex direction="row" gap="2">
       <Button {...inc}>+</Button>
-      <Input {...input} />
+      <Input {...input} bg="background.700" color="gray.100" borderColor="gray.600" _placeholder={{ color: 'gray.400' }} />
       <Button {...dec}>-</Button>
     </Flex>
   );

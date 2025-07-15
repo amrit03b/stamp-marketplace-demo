@@ -55,40 +55,40 @@ const ExchangeCard: FC<ExchangeCardProps> = (props) => {
   });
 
   return (
-    <Box borderWidth='1px' borderRadius='lg' padding={6} data-testid="exchange-card">
-      <Text fontWeight="bold" fontSize="3xl" data-testid="buy-tokens-title">Buy {symbol} Tokens</Text>
-      <Flex gap={6} backgroundColor={"blue.50"} rounded={"sm"} py={1} px={4} mt={6} data-testid="supply-info">
+    <Box borderWidth='1px' borderRadius='lg' padding={6} data-testid="exchange-card" bg="background.800" borderColor="gray.700">
+      <Text fontWeight="bold" fontSize="3xl" data-testid="buy-tokens-title" color="gray.100">Buy {symbol} Tokens</Text>
+      <Flex gap={6} bg="background.700" rounded={"sm"} py={1} px={4} mt={6} data-testid="supply-info">
         <Flex gap={1}>
-          <Text color={"blackAlpha.600"}>Max Supply</Text>
-          <Text fontWeight={"bold"}>{formatNumber(total_amount)} {symbol}</Text>
+          <Text color={"gray.300"}>Max Supply</Text>
+          <Text fontWeight={"bold"} color="gray.100">{formatNumber(total_amount)} {symbol}</Text>
         </Flex>
         <Flex gap={1}>
-          <Text color={"blackAlpha.600"}>Available for Purchase</Text>
-          <Text fontWeight={"bold"}>{formatNumber(amount)} {symbol}</Text>
+          <Text color={"gray.300"}>Available for Purchase</Text>
+          <Text fontWeight={"bold"} color="gray.100">{formatNumber(amount)} {symbol}</Text>
         </Flex>
       </Flex>
       <Box mt={6}>
         <Flex justify={"space-between"} mb={2} data-testid="balance-info">
-          <Text color={"blackAlpha.600"}>You pay in {account ? balance.denom : "uandr"}</Text>
-          <Text color={"#5B6BCF"} decoration={"underline"}>Balance: {balance.amount}</Text>
+          <Text color={"gray.300"}>You pay in {account ? balance.denom : "uandr"}</Text>
+          <Text color={"accent.400"} decoration={"underline"}>Balance: {balance.amount}</Text>
         </Flex>
         <ExchangeInput onChange={handleAndrInput} value={nativeAmount} icon={chainConfig?.iconUrls?.sm || ''} symbol={symbol} />
       </Box>
       <Box textAlign={"center"} my={4}>
-        <ArrowDownIcon color={"#5B6BCF"} />
+        <ArrowDownIcon color={"accent.400"} />
       </Box>
       {account ? (
         <Box data-testid="exchange-actions">
           <Box mb={6}>
             <Flex justify={"space-between"} mb={2}>
-              <Text color={"blackAlpha.600"}>You get {symbol}</Text>
+              <Text color={"gray.300"}>You get {symbol}</Text>
             </Flex>
-            <Flex justify={"space-between"} align={"center"} mb={2} background={"gray.100"} py={2} px={3} borderRadius={"lg"} data-testid="token-receive-info">
-              <Text fontWeight={"bold"}>{Math.floor(nativeAmount / exchange_rate) || 0}</Text>
+            <Flex justify={"space-between"} align={"center"} mb={2} bg={"background.700"} py={2} px={3} borderRadius={"lg"} data-testid="token-receive-info">
+              <Text fontWeight={"bold"} color="gray.100">{Math.floor(nativeAmount / exchange_rate) || 0}</Text>
               <Image src={cw20_url} alt={symbol} w="8" />
             </Flex>
           </Box>
-          <Button backgroundColor={"gray.900"} display={"block"} width={"full"} onClick={open} isDisabled={nativeAmount == 0} data-testid="buy-button">
+          <Button bgGradient="linear(to-r, primary.400, accent.400)" color="white" display={"block"} width={"full"} onClick={open} isDisabled={nativeAmount == 0} data-testid="buy-button">
             Buy
           </Button>
           <ExchangeCardSummary

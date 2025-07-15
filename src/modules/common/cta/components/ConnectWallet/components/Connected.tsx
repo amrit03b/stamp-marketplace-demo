@@ -79,7 +79,9 @@ const Connected: FC<ConnectedProps> = (props) => {
                 value={account?.address ?? ""}
                 mb={2}
                 p={2}
-                color="gray.700"
+                color="gray.100"
+                bg="background.700"
+                borderColor="gray.600"
                 fontSize="sm"
                 readOnly
               />
@@ -88,7 +90,9 @@ const Connected: FC<ConnectedProps> = (props) => {
                   leftIcon={<CopyIcon boxSize={4} />}
                   variant="outline"
                   fontWeight={500}
-                  color="gray.700"
+                  color="gray.100"
+                  bg="background.700"
+                  borderColor="gray.600"
                   text={account?.address ?? ""}
                   w="full"
                 >
@@ -104,7 +108,9 @@ const Connected: FC<ConnectedProps> = (props) => {
                   leftIcon={<ExternalLinkIcon boxSize={4} />}
                   variant="outline"
                   fontWeight={500}
-                  color="gray.700"
+                  color="gray.100"
+                  bg="background.700"
+                  borderColor="gray.600"
                   w="full"
                 >
                   Explorer
