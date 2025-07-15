@@ -1,5 +1,5 @@
 # Embeddable Demo Link
-[https://embeddables.testnet.andromedaprotocol.io/galileo-4/Sneaker-Resale](https://embeddables.testnet.andromedaprotocol.io/galileo-4/Sneaker-Resale)
+[https://embeddables.testnet.andromedaprotocol.io/constantine-3/stamp-auction](https://embeddables.testnet.andromedaprotocol.io/constantine-3/stamp-auction)
 
 # Archway Testnet Wallet Address
 archway19h322j92l9xdnflgu3aez5rhgef4t3q5qyyv2r
@@ -7,13 +7,9 @@ archway19h322j92l9xdnflgu3aez5rhgef4t3q5qyyv2r
 # Project Name: Andromeda Stamp Auction Platform
 
 ## Who are you?
-- name: Amrit
+- Name: Amrit
 - Blockchain Developer
-- Smart Contract Engineer
-- Frontend Developer
-- Web3 Enthusiast
-- Open Source Contributor
-- Community Builder
+
 
 ## Project Details
 Andromeda Stamp Auction Platform is a decentralized application built on the Constantine-3 blockchain, dedicated to the auction and trade of collectible stamps. Users can list, bid on, and win rare and unique stamps in a secure, transparent, and trustless environment. The platform is designed for stamp collectors and enthusiasts, providing a seamless experience for discovering, bidding, and acquiring digital stamp collectibles. With wallet integration and a modern UI, users can easily participate in live auctions and grow their stamp collections.
