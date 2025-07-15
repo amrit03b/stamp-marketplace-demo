@@ -1,6 +1,6 @@
 "use client"
 import { KEPLR_AUTOCONNECT_KEY, connectAndromedaClient, initiateKeplr, useAndromedaStore } from "@/zustand/andromeda";
-import React, { FC, ReactNode, useEffect, useLayoutEffect } from "react"
+import React, { FC, ReactNode, useEffect, useLayoutEffect, useState } from "react"
 
 interface Props {
     children?: ReactNode;
@@ -13,19 +13,28 @@ const Providers: FC<Props> = (props) => {
     const isLoading = useAndromedaStore(state => state.isLoading)
     const keplr = useAndromedaStore(state => state.keplr)
     const connectedChainId = useAndromedaStore(state => state.chainId)
+    const [mounted, setMounted] = useState(false);
 
-    useLayoutEffect(() => {
-        initiateKeplr();
+    useEffect(() => {
+        setMounted(true);
     }, []);
 
     useLayoutEffect(() => {
-        const autoconnect = localStorage.getItem(KEPLR_AUTOCONNECT_KEY);
+        if (!mounted) return;
+        initiateKeplr();
+    }, [mounted]);
+
+    useLayoutEffect(() => {
+        if (!mounted) return;
+        const autoconnect = typeof window !== 'undefined' ? localStorage.getItem(KEPLR_AUTOCONNECT_KEY) : null;
         if (!isLoading && typeof keplr !== "undefined" && autoconnect === keplr?.mode) {
             if (!isConnected || (isConnected && connectedChainId !== chainId)) {
                 connectAndromedaClient(chainId);
             }
         }
-    }, [keplr, isConnected, isLoading, chainId]);
+    }, [keplr, isConnected, isLoading, chainId, connectedChainId, mounted]);
+
+    if (!mounted) return null;
 
     return (
         <>

@@ -2,7 +2,7 @@
 import { apolloClient } from "@/lib/graphql";
 import reactQueryClient from "@/lib/react-query/client";
 import { GlobalModalProvider } from "@/modules/modals";
-import theme, { ThemeStorageManager } from "@/theme";
+import { Theme, ThemeStorageManager } from "@/theme";
 import { ApolloProvider } from "@apollo/client";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -21,7 +21,7 @@ const Providers: FC<Props> = (props) => {
         <QueryClientProvider client={reactQueryClient}>
             <ApolloProvider client={apolloClient}>
                 <CacheProvider>
-                    <ChakraProvider theme={theme} colorModeManager={ThemeStorageManager}>
+                    <ChakraProvider theme={Theme} colorModeManager={ThemeStorageManager}>
                         <GlobalModalProvider>
                             {children}
                         </GlobalModalProvider>

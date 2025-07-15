@@ -11,7 +11,7 @@ const Navbar: FC<NavbarProps> = (props) => {
   const { config } = useApp();
 
   return (
-    <Box py="2" px="8">
+    <Box py="2" px="8" bg="rgba(255,255,255,0.6)" backdropFilter="blur(8px)" borderBottom="1px solid rgba(0,0,0,0.05)" boxShadow="sm" zIndex={10} position="sticky" top={0}>
       <Flex
         direction="row"
         alignItems="center"

@@ -20,7 +20,15 @@ const config: ThemeConfig = {
 
 export const ThemeStorageManager = createLocalStorageManager("andromeda-marketplace-theme");
 
-export default extendTheme({
+const cardStyle = {
+  bg: 'rgba(255,255,255,0.7)',
+  boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)',
+  borderRadius: '2xl',
+  backdropFilter: 'blur(12px)',
+  border: '1px solid rgba(255,255,255,0.18)'
+};
+
+export const Theme = extendTheme({
   config,
   styles: {
     global: {
@@ -61,6 +69,23 @@ export default extendTheme({
     Spinner,
     Tabs,
     Tooltip,
+    Card: {
+      baseStyle: cardStyle,
+    },
+    Button: {
+      ...theme.components?.Button,
+      variants: {
+        ...theme.components?.Button?.variants,
+        gradient: {
+          bgGradient: 'linear(to-r, primary.400, primary.600)',
+          color: 'white',
+          _hover: {
+            bgGradient: 'linear(to-r, primary.500, primary.700)',
+            boxShadow: 'lg',
+          },
+        },
+      },
+    },
   },
   colors: {
     primary: {
@@ -215,4 +240,11 @@ export default extendTheme({
       fontSize: "sm",
     },
   },
+  radii: {
+    ...theme.radii,
+    xl: '1.5rem',
+    '2xl': '2rem',
+  },
 });
+
+export default Theme;

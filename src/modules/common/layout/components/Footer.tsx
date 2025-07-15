@@ -1,4 +1,4 @@
-import { Flex, Text, Link } from "@chakra-ui/react";
+import { Flex, Text, Link, Box } from "@chakra-ui/react";
 import React, { FC } from "react";
 import useApp from "@/lib/app/hooks/useApp";
 
@@ -9,18 +9,9 @@ const Footer: FC<FooterProps> = (props) => {
   const { config } = useApp();
 
   return (
-    <Flex
-      backgroundColor="#101828"
-      direction="column"
-      textColor="white"
-      align='center'
-      p='4'
-      data-testid="footer"
-    >
-      <Text data-testid="footer-text">
-        More Information about <b>ANDROMEDA</b> can be found <Link href='https://www.andromedaprotocol.io/' target="_blank" data-testid="footer-link">here</Link>
-      </Text>
-    </Flex>
+    <Box as="footer" w="full" py={4} px={8} bg="rgba(255,255,255,0.6)" backdropFilter="blur(8px)" borderTop="1px solid rgba(0,0,0,0.05)" textAlign="center" fontWeight="medium" color="gray.700">
+      Powered by Andromeda
+    </Box>
   );
 };
 

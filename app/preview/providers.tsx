@@ -16,12 +16,18 @@ const Providers: FC<Props> = (props) => {
     const chainId = searchParams.get('chain');
     const rawConfig = searchParams.get('config') as string;
     const [loaded, setLoaded] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useLayoutEffect(() => {
+        if (!mounted) return;
         const config: IConfig = parseEmbeddableUrl(rawConfig);
         updateConfig(config);
         setLoaded(true)
-    }, [rawConfig])
+    }, [rawConfig, mounted])
 
     const isConnected = useAndromedaStore(state => state.isConnected)
     const isLoading = useAndromedaStore(state => state.isLoading)
@@ -29,19 +35,21 @@ const Providers: FC<Props> = (props) => {
     const connectedChainId = useAndromedaStore(state => state.chainId)
 
     useLayoutEffect(() => {
+        if (!mounted) return;
         initiateKeplr();
-    }, []);
+    }, [mounted]);
 
     useLayoutEffect(() => {
-        const autoconnect = localStorage.getItem(KEPLR_AUTOCONNECT_KEY);
+        if (!mounted) return;
+        const autoconnect = typeof window !== 'undefined' ? localStorage.getItem(KEPLR_AUTOCONNECT_KEY) : null;
         if (!isLoading && typeof keplr !== "undefined" && autoconnect === keplr?.mode) {
             if (!isConnected || (isConnected && (connectedChainId !== chainId))) {
                 connectAndromedaClient(chainId);
             }
         }
-    }, [keplr, isConnected, isLoading, chainId]);
+    }, [keplr, isConnected, isLoading, chainId, connectedChainId, mounted]);
 
-    if (!loaded) return null;
+    if (!loaded || !mounted) return null;
 
     return (
         <>
